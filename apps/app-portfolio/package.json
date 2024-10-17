@@ -14,6 +14,6 @@
     "typescript": "~5.5.2"
   },
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
+    "registry": "https://registry.npmjs.org/"
   }
 }
