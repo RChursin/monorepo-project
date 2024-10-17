@@ -8,6 +8,11 @@ module.exports = [
     ignores: ['**/dist'],
   },
   {
+    env: {
+      browser: true,
+      node: true,
+      es2021: true,
+    },
     files: ['**/*.ts', '**/*.tsx', '**/*.js', '**/*.jsx'],
     rules: {
       '@nx/enforce-module-boundaries': [
@@ -24,10 +29,5 @@ module.exports = [
         },
       ],
     },
-  },
-  {
-    files: ['**/*.ts', '**/*.tsx', '**/*.js', '**/*.jsx'],
-    // Override or add rules here
-    rules: {},
   },
 ];
