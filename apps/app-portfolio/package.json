@@ -1,6 +1,6 @@
 {
   "name": "@rchursin/app-portfolio",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "private": false,
   "dependencies": {
     "next": "^14.2.3",
