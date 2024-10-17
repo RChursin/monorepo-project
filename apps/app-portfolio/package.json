@@ -1,7 +1,7 @@
 {
-  "name": "app-portfolio",
+  "name": "@rchursin/app-portfolio",
   "version": "1.0.1",
-  "private": true,
+  "private": false,
   "dependencies": {
     "next": "^14.2.3",
     "react": "^18.3.1"
@@ -12,5 +12,8 @@
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-react": "^7.35.0",
     "typescript": "~5.5.2"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
   }
 }

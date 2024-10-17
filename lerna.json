@@ -4,6 +4,11 @@
   "npmClient": "pnpm",
   "packages": [
     "apps/*",
-    "libs/*" 
-  ]
+    "libs/*"
+  ],
+  "command": {
+    "publish": {
+      "registry": "https://npm.pkg.github.com/"
+    }
+  }
 }
