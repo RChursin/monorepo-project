@@ -1,0 +1,16 @@
+{
+  "name": "app-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "react": "^18.3.1",
+    "next": "^14.2.3"
+  },
+  "devDependencies": {
+    "eslint": "^9.8.0",
+    "eslint-config-next": "^14.2.3",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-react": "^7.35.0",
+    "typescript": "~5.5.2"
+  }
+}

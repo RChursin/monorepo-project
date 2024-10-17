@@ -5,16 +5,16 @@ module.exports = [
   playwright.configs['flat/recommended'],  // Playwright's recommended rules
   ...baseConfig,  // Inherit base config from the root
   {
-    env: {
-      browser: true,  // Set browser context since Playwright runs in the browser
-      node: true,     // Enable node context for setup scripts
-    },
     files: ['**/*.ts', '**/*.js'],
+    languageOptions: {
+      globals: {
+        browser: true,  // Browser context for Playwright tests
+        node: true,     // Node.js context for setup/teardown scripts
+      },
+    },
     rules: {
-      // Example Playwright rules (you can adjust these based on your needs)
-      'playwright/no-conditional-in-test': 'warn',  // Warn when using conditional logic inside tests
-      'playwright/no-skipped-test': 'error',        // Throw error if tests are skipped
-      // You can add more Playwright-specific rules here as needed
+      'playwright/no-conditional-in-test': 'warn',  // Warn if conditionals are used in tests
+      'playwright/no-skipped-test': 'error',        // Prevent skipping tests
     },
   },
 ];

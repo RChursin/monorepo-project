@@ -1,0 +1,11 @@
+{
+  "name": "playwright-e2e",
+  "version": "1.0.0",
+  "private": true,
+  "devDependencies": {
+    "eslint": "^9.8.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-playwright": "^1.6.2",
+    "typescript": "~5.5.2"
+  }
+}

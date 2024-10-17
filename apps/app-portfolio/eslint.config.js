@@ -18,14 +18,19 @@ module.exports = [
     ignores: ['.next/**/*'],  // Ignore Next.js build files
   },
   {
-    files: ['**/*.ts', '**/*.tsx'],  // Apply to TypeScript files
+    files: ['**/*.ts', '**/*.tsx'],
+    languageOptions: {
+      globals: {
+        window: true,
+        document: true,
+      },
+    },
     rules: {
-      // React-specific rules
-      'react/jsx-key': 'error',  // Ensure each JSX element has a unique "key" prop
-      'react-hooks/rules-of-hooks': 'error',  // Enforce the rules of hooks
-      'react-hooks/exhaustive-deps': 'warn',  // Warn about missing dependencies in effect hooks
-      'react/no-danger': 'error',  // Disallow the use of dangerouslySetInnerHTML
-      'react/jsx-no-target-blank': 'warn',  // Prevent security vulnerabilities with external links
+      'react/jsx-key': 'error',
+      'react-hooks/rules-of-hooks': 'error',
+      'react-hooks/exhaustive-deps': 'warn',
+      'react/no-danger': 'error',
+      'react/jsx-no-target-blank': 'warn',
     },
   },
 ];
