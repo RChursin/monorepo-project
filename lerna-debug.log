@@ -8,22 +8,14 @@
 3 verbose rootPath /Users/cyberjunkie/MyProjects/monorepo-project
 4 error Failed to process project graph. Run "nx reset" to fix this. Please report the issue if you keep seeing it.
 4 error       An error occurred while processing files for the @nx/eslint/plugin plugin.
-4 error     - apps/app-portfolio/eslint.config.js: Cannot read config file: /Users/cyberjunkie/MyProjects/monorepo-project/node_modules/.pnpm/eslint-config-next@14.2.3_eslint@9.12.0_typescript@5.5.4/node_modules/eslint-config-next/index.js
-4 error   Error: Failed to patch ESLint because the calling module was not recognized.
-4 error   If you are using a newer ESLint version that may be unsupported, please create a GitHub issue:
-4 error   https://github.com/microsoft/rushstack/issues
-4 error   Referenced from:
-4 error       Error: Cannot read config file: /Users/cyberjunkie/MyProjects/monorepo-project/node_modules/.pnpm/eslint-config-next@14.2.3_eslint@9.12.0_typescript@5.5.4/node_modules/eslint-config-next/index.js
-4 error       Error: Failed to patch ESLint because the calling module was not recognized.
-4 error       If you are using a newer ESLint version that may be unsupported, please create a GitHub issue:
-4 error       https://github.com/microsoft/rushstack/issues
-4 error       Referenced from:
-4 error           at Object.<anonymous> (/Users/cyberjunkie/MyProjects/monorepo-project/node_modules/.pnpm/@rushstack+eslint-patch@1.10.4/node_modules/@rushstack/eslint-patch/lib/_patch-base.js:167:19)
+4 error     - apps/app-portfolio/eslint.config.js: compat.rules is not a function or its return value is not iterable
+4 error       TypeError: compat.rules is not a function or its return value is not iterable
+4 error           at Object.<anonymous> (/Users/cyberjunkie/MyProjects/monorepo-project/apps/app-portfolio/eslint.config.js:12:13)
 4 error           at Module._compile (node:internal/modules/cjs/loader:1469:14)
 4 error           at Module._extensions..js (node:internal/modules/cjs/loader:1548:10)
 4 error           at Module.load (node:internal/modules/cjs/loader:1288:32)
 4 error           at Module._load (node:internal/modules/cjs/loader:1104:12)
-4 error           at Module.require (node:internal/modules/cjs/loader:1311:19)
-4 error           at require (node:internal/modules/helpers:179:18)
-4 error           at Object.<anonymous> (/Users/cyberjunkie/MyProjects/monorepo-project/node_modules/.pnpm/@rushstack+eslint-patch@1.10.4/node_modules/@rushstack/eslint-patch/lib/modern-module-resolution.js:11:23)
-4 error           at Module._compile (node:internal/modules/cjs/loader:1469:14)
+4 error           at cjsLoader (node:internal/modules/esm/translators:346:17)
+4 error           at ModuleWrap.<anonymous> (node:internal/modules/esm/translators:286:7)
+4 error           at ModuleJob.run (node:internal/modules/esm/module_job:234:25)
+4 error           at async ModuleLoader.import (node:internal/modules/esm/loader:473:24)

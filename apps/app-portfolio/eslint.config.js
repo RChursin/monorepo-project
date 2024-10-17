@@ -1,6 +1,5 @@
 const { FlatCompat } = require('@eslint/eslintrc');
 const js = require('@eslint/js');
-const { fixupConfigRules } = require('@eslint/compat');
 const nx = require('@nx/eslint-plugin');
 const baseConfig = require('../../eslint.config.js');
 
@@ -10,8 +9,8 @@ const compat = new FlatCompat({
 });
 
 module.exports = [
-  ...fixupConfigRules(compat.extends('next')),              // Next.js recommended rules
-  ...fixupConfigRules(compat.extends('next/core-web-vitals')),  // Core web vitals for performance
+  ...compat.extends('plugin:react/recommended'),              // React recommended rules
+  ...compat.extends('plugin:react-hooks/recommended'),        // React Hooks recommended rules
   ...baseConfig,  // Inherit base config from the root
   ...nx.configs['flat/react-typescript'],  // Nx React and TypeScript rules
   {
