@@ -1,5 +1,5 @@
 {
-  "name": "@rchursin/app-portfolio",
+  "name": "app-portfolio",
   "version": "1.0.3",
   "private": false,
   "dependencies": {
@@ -12,8 +12,5 @@
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-react": "^7.35.0",
     "typescript": "~5.5.2"
-  },
-  "publishConfig": {
-    "registry": "https://registry.npmjs.org/"
   }
 }

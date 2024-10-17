@@ -1,5 +1,5 @@
 {
-  "name": "@rchursin/playwright-e2e",
+  "name": "playwright-e2e",
   "version": "1.0.3",
   "private": false,
   "devDependencies": {
@@ -7,8 +7,5 @@
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-playwright": "^1.6.2",
     "typescript": "~5.5.2"
-  },
-  "publishConfig": {
-    "registry": "https://registry.npmjs.org/"
   }
 }
