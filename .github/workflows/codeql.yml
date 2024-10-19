@@ -1,0 +1,67 @@
+name: "CodeQL"
+
+on:
+  push:
+    branches: [ "main" ]
+    paths-ignore:
+      - 'spec/**'
+      - '**/*.spec.*'
+      - '**/*.md'
+      - '**/*.txt'
+      - 'catalog-info.yaml'
+      - 'manifests/**'
+      - '*/test/**'
+      - '.github/**'
+  pull_request:
+    branches: [ "main" ]
+    paths-ignore:
+      - 'spec/**'
+      - '**/*.spec.*'
+      - '**/*.md'
+      - '**/*.txt'
+      - 'catalog-info.yaml'
+      - 'manifests/**'
+      - '*/test/**'
+      - '.github/**'
+  workflow_dispatch:
+
+jobs:
+  analyze:
+    name: Analyze
+    runs-on: ubuntu-latest
+    permissions:
+      actions: read
+      contents: read
+      security-events: write
+
+    strategy:
+      fail-fast: false
+      matrix:
+        language: [ 'javascript', 'typescript' ]
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install PNPM
+        run: npm install -g pnpm
+
+      - name: Install dependencies
+        run: pnpm install
+
+      # Initialize CodeQL for JavaScript/TypeScript analysis
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v2
+        with:
+          languages: ${{ matrix.language }}
+          queries: security-extended,security-and-quality
+
+      # Run the build step for the project if needed
+      - name: Build project
+        run: pnpm build
+
+      # Perform the CodeQL analysis
+      - name: Perform CodeQL Analysis
+        uses: github/codeql-action/analyze@v2
+        with:
+          category: "/language:${{matrix.language}}"
