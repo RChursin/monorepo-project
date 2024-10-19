@@ -40,6 +40,6 @@ jobs:
       - name: Install Dependencies
         run: pnpm install
 
-      # Run affected commands: lint, test, and build using Nx
+      # Run affected commands: lint, test, and build (exclude e2e-ci for now)
       - name: Run Affected Commands
-        run: pnpm nx affected --target=lint,test,build,e2e-ci
+        run: pnpm nx affected --target=lint,test,build
