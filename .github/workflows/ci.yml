@@ -42,4 +42,4 @@ jobs:
 
       # Run affected commands: lint, test, and build (exclude e2e-ci for now)
       - name: Run Affected Commands
-        run: pnpm nx affected --target=lint,test,build
+        run: pnpm nx affected --target=lint,test,build --all --exclude=e2e-ci
