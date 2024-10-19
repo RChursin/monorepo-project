@@ -1,16 +1,10 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
 .dark-mode {
   background-color: #121212;
   color: #e0e0e0;
-}
-
-body.dark-mode a {
-  color: #bb86fc;
-}
-
-.dark-mode .navbar, .dark-mode .sidebar {
-  background-color: #333;
-}
-
-.dark-mode .main-content {
-  background-color: #1e1e1e;
 }

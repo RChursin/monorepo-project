@@ -1,0 +1,23 @@
+.sidebar {
+  background-color: #f8f9fa;
+  color: #000;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 16.6667%;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.sidebar.dark-mode {
+  background-color: #1e1e1e;
+  color: #e0e0e0;
+}
+
+.sidebar a {
+  color: inherit;
+}
+
+.sidebar a:hover {
+  color: #ddd; /* Optional hover effect in dark mode */
+}

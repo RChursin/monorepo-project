@@ -1,0 +1,15 @@
+.avatar {
+  width: 40px; /* Set the width to your desired size */
+  height: auto; /* Keep the aspect ratio */
+  border-radius: 30%; /* Optional: makes the image circular */
+}
+
+.avatar-dropdown .dropdown-menu {
+  background-color: #fff;
+  color: #000;
+}
+
+.avatar-dropdown .dropdown-menu.dark-mode {
+  background-color:  #121212;
+  color: #e0e0e0;
+}

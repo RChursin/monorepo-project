@@ -1,2 +1,31 @@
 .page {
+  display: flex;
+  flex-direction: column; /* Stack elements vertically */
+}
+
+.page h1 {
+  margin-bottom: 10px; /* Adds space between the h1 and p */
+}
+
+.page p {
+  margin-top: 0;
+}
+
+.sidebar {
+  width: 16.6667%; /* Fixed width for the sidebar */
+}
+
+.mainArea {
+  flex: 1;
+}
+
+.avatarSection {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+
+.dark-mode {
+  background-color: #121212;
+  color: #e0e0e0;
 }

@@ -1,0 +1,5 @@
+.main-content {
+  margin-left: 16.6667%; /* Matches the sidebar width */
+  padding: 20px;
+  flex: 1; /* To fill remaining space */
+}
