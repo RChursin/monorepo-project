@@ -15,23 +15,26 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      # Cache node_modules for faster builds
-      - name: Set up Node.js
+      # Set up Node.js environment with caching for pnpm
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20
           cache: 'pnpm'
 
+      # Install pnpm globally
       - name: Install PNPM
         run: npm install -g pnpm
 
+      # Install dependencies using pnpm
       - name: Install Dependencies
         run: pnpm install
 
-      # Run lint, test, and build for all affected packages
-      - name: Run affected commands
+      # Run affected commands: lint, test, and build using Nx
+      - name: Run Affected Commands
         run: pnpm nx affected --target=lint,test,build,e2e-ci
