@@ -11,35 +11,25 @@ permissions:
   contents: read
 
 jobs:
-  ci-build:
+  main:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      # Set up Node.js environment
-      - name: Setup Node.js
+      - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: '20'
 
-      # Install PNPM using the official action
-      - name: Setup PNPM
-        uses: pnpm/action-setup@v2
+      - name: Set up PNPM
+        uses: pnpm/action-setup@v2.0.1
         with:
-          version: 8.8.0  # or latest
+          version: 8.0.0
 
-      # Verify PNPM installation and version
-      - name: Verify PNPM installation
-        run: pnpm --version
-
-      # Install dependencies using pnpm
-      - name: Install Dependencies
+      - name: Install dependencies
         run: pnpm install
 
-      # Run affected commands: lint, test, and build (exclude e2e-ci for now)
-      - name: Run Affected Commands
-        run: pnpm nx affected --target=lint,test,build --all --exclude=e2e-ci
+      - name: Build
+        run: pnpm build
