@@ -37,33 +37,31 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        language: [ 'javascript', 'typescript' ] # Since the project includes JavaScript/TypeScript
+        language: [ 'javascript', 'typescript' ]
 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-    # Initialize CodeQL for JavaScript/TypeScript analysis
-    - name: Initialize CodeQL
-      uses: github/codeql-action/init@v2
-      with:
-        languages: ${{ matrix.language }}
-        # Adding security and quality queries for more thorough analysis
-        queries: security-extended,security-and-quality
+      - name: Install PNPM
+        run: npm install -g pnpm
 
-    # Run the build for JavaScript/TypeScript projects if necessary (optional step)
-    - name: Install dependencies
-      run: |
-        pnpm install # Assuming pnpm is used in the project
+      - name: Install dependencies
+        run: pnpm install
 
-    # This step attempts to build JavaScript/TypeScript, typically not needed for interpreted languages
-    # Can be customized based on the build process of the project
-    - name: Build project (Optional)
-      run: |
-        pnpm build # Example, if there is a build step for your monorepo
+      # Initialize CodeQL for JavaScript/TypeScript analysis
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v2
+        with:
+          languages: ${{ matrix.language }}
+          queries: security-extended,security-and-quality
 
-    # Perform the CodeQL analysis
-    - name: Perform CodeQL Analysis
-      uses: github/codeql-action/analyze@v2
-      with:
-        category: "/language:${{matrix.language}}"
+      # Run the build step for the project if needed
+      - name: Build project
+        run: pnpm build
+
+      # Perform the CodeQL analysis
+      - name: Perform CodeQL Analysis
+        uses: github/codeql-action/analyze@v2
+        with:
+          category: "/language:${{matrix.language}}"

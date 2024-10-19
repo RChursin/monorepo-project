@@ -6,7 +6,7 @@ on:
 jobs:
   lint-all-packages:
     name: Lint all Packages
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -15,7 +15,7 @@ jobs:
         run: npm install -g pnpm
 
       - name: Install Dependencies
-        run: pnpm i
+        run: pnpm install
 
       - name: Lint
-        run: pnpm run lint
+        run: pnpm lint

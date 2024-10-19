@@ -1,27 +1,12 @@
-# Dependency Review Action
-#
-# This Action will scan dependency manifest files that change as part of a Pull Request, surfacing known-vulnerable versions of the packages declared or updated in the PR. Once installed, if the workflow run is marked as required, PRs introducing known-vulnerable packages will be blocked from merging.
-#
-# Source repository: https://github.com/actions/dependency-review-action
-# Public documentation: https://docs.github.com/en/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review#dependency-review-enforcement
 name: 'Dependency Review'
+
 on: 
   pull_request:
     paths:
       - 'package.json'
       - '**/package.json'
-      - 'Gemfile.lock'
-      - '**/Gemfile.lock'
-      - 'Gemfile'
-      - '**/Gemfile'
-      - 'Gemfile_next.lock'
-      - '**/Gemfile_next.lock'
-      - 'requirements.txt'
-      - '**/requirements.txt'
-      - 'build.gradle'
-      - '**/build.gradle'
-      - 'Package.resolved'
-      - '**/Package.resolved'
+      - 'pnpm-lock.yaml'
+      - '**/pnpm-lock.yaml'
 
 permissions:
   contents: read
@@ -31,12 +16,18 @@ jobs:
   dependency-review:
     runs-on: ubuntu-latest
     steps:
-      - name: 'Checkout Repository'
+      - name: Checkout Repository
         uses: actions/checkout@v3
+
+      - name: Install PNPM
+        run: npm install -g pnpm
+
+      - name: Install Dependencies
+        run: pnpm install
+
       - name: Dependency Review
         uses: actions/dependency-review-action@v3
         with:
-          # Possible values: "critical", "high", "moderate", "low"
           fail-on-severity: high
           deny-licenses: >
             LGPL-2.0, AAL, Adobe-2006, Afmparse, Artistic-1.0,
@@ -62,12 +53,3 @@ jobs:
             GPL-2.0-or-later, GPL-2.0, GPL-3.0-only, GPL-3.0-or-later, GPL-3.0,
             QPL-1.0, Sleepycat
           comment-summary-in-pr: true 
-        # ([String]). Block the pull request on these licenses (optional)
-        # Possible values: Any  `spdx_id` value(s) from https://docs.github.com/en/rest/licenses
-         
-        # ([String]). Skip these GitHub Advisory Database IDs during detection (optional)
-        # Possible values: Any valid GitHub Advisory Database ID from https://github.com/advisories
-        #allow-ghsas: 
-
-
-        
