@@ -1,0 +1,6 @@
+pre-commit:
+  commands:
+    format:
+      glob: '**/*.{js,jsx,ts,tsx}'
+      run: sh -c 'pnpm eslint --fix {staged_files} && pnpm prettier --write {staged_files} && git add {staged_files}'
+      skip: [rebase]
