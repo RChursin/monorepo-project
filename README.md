@@ -1,7 +1,12 @@
 ### Monorepo-project
 
-As A note while building 
+[![Lint all Packages](https://github.com/RChursin/monorepo-project/actions/workflows/lint.yml/badge.svg)](https://github.com/RChursin/monorepo-project/actions/workflows/lint.yml)
 
+[![CodeQL](https://github.com/RChursin/monorepo-project/actions/workflows/codeql.yml/badge.svg?branch=main)](https://github.com/RChursin/monorepo-project/actions/workflows/codeql.yml)
+
+## RAW Project Directory Structure
+
+```
 src/
 ├── app/
 │   ├── api/
@@ -23,4 +28,5 @@ src/
 │   ├── layout.tsx                     # Root layout that imports these components
 │   ├── head.tsx                       # SEO metadata
 │   ├── global.css                     # Global styles (like resetting)
-│   ├── page.tsx    
+│   ├── page.tsx                       # Main entry point  
+```
